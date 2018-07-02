@@ -28,11 +28,11 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>D:\devil13th\thdsvn\project\thd-note-web\src\main\java</sourceDirectory>
-		<scriptSourceDirectory>D:\devil13th\thdsvn\project\thd-note-web\src\main\scripts</scriptSourceDirectory>
-		<testSourceDirectory>D:\devil13th\thdsvn\project\thd-note-web\src\test\java</testSourceDirectory>
-		<outputDirectory>D:\devil13th\thdsvn\project\thd-note-web\target\classes</outputDirectory>
-		<testOutputDirectory>D:\devil13th\thdsvn\project\thd-note-web\target\test-classes</testOutputDirectory>
+		<sourceDirectory>src\main\java</sourceDirectory>
+		<scriptSourceDirectory>src\main\scripts</scriptSourceDirectory>
+		<testSourceDirectory>src\test\java</testSourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+		<testOutputDirectory>target\test-classes</testOutputDirectory>
 		<plugins>
 			<!-- 设置maven编译使用的jdk -->
 			<plugin>
