@@ -9,17 +9,29 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.1.RELEASE</version>
+		<!-- <version>2.0.1.RELEASE</version> -->
+		<version>1.5.12.RELEASE</version>
 	</parent>
 	
 	<properties>
 		<thdBaseVersion>0.0.1-SNAPSHOT</thdBaseVersion>
 	</properties>	
+	
 	<dependencies>
 		<dependency>
 			<groupId>com.thd.base</groupId>
 			<artifactId>thd-base-tool</artifactId>
-			<version>${thdBaseVersion}</version>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thd.base</groupId>
+			<artifactId>thd-base-tool</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thd.base</groupId>
+			<artifactId>thd-base-tool</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>
@@ -34,11 +46,6 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>src\main\java</sourceDirectory>
-		<scriptSourceDirectory>src\main\scripts</scriptSourceDirectory>
-		<testSourceDirectory>src\test\java</testSourceDirectory>
-		<outputDirectory>target\classes</outputDirectory>
-		<testOutputDirectory>target\test-classes</testOutputDirectory>
 		<plugins>
 			<!-- 设置maven编译使用的jdk -->
 			<plugin>
