@@ -2,12 +2,17 @@ package com.thd.note.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-@RestController
+@Controller
 @RequestMapping(value="/x")
 public class AController {
-
+	
+	/**
+	 * url : http://127.0.0.1:8000/thd-note-web/x/a
+	 * @param req
+	 * @return
+	 */
 	@RequestMapping(value="/a")
 	public String a(HttpServletRequest req){
 		HttpSession sess = req.getSession();

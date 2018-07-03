@@ -14,6 +14,6 @@
 </script>
 </head>
 <body>
-<div id="a">parent</div>
+<div id="a">[${name}]</div>
 </body>
 </html>
