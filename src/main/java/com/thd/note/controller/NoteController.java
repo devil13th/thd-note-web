@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +20,8 @@ public class NoteController {
 	
 	@Resource
 	private NoteService noteService;
+	
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 	/**
 	 * url http://127.0.0.1:8899/note/note/queryNote/1
 	 * @param id
@@ -25,9 +29,8 @@ public class NoteController {
 	 */
 	@RequestMapping(value="/queryNote/{id}")
 	public Note queryNote(@PathVariable String id){
-		System.out.println("queryNote()");
+		log.info("queryNote()");
 		Note note = noteService.queryNoteById(id);
-		System.out.println(note);
 		return note;
 	}
 	/**
@@ -36,7 +39,7 @@ public class NoteController {
 	 */
 	@RequestMapping(value="/queryNote")
 	public List queryNote(){
-		System.out.println("queryNote()");
+		log.info("queryNote()");
 		return this.noteService.queryNote();
 	}
 	
@@ -46,7 +49,7 @@ public class NoteController {
 	 */
 	@RequestMapping(value="/saveNote")
 	public AjaxReturnBean saveNote(Note note){
-		System.out.println("saveNote()");
+		log.info("saveNote()");
 		AjaxReturnBean arb = new  AjaxReturnBean();
 		arb.setStatus("SUCCESS");
 		arb.setMessage("保存成功");
@@ -67,7 +70,7 @@ public class NoteController {
 	 */
 	@RequestMapping(value="/deleteNote/{id}")
 	public AjaxReturnBean deleteNote(@PathVariable String id){
-		System.out.println("deleteNote()");
+		log.info("deleteNote()");
 		AjaxReturnBean arb = new  AjaxReturnBean();
 		arb.setStatus("SUCCESS");
 		arb.setMessage("删除成功");
@@ -89,7 +92,7 @@ public class NoteController {
 	 */
 	@RequestMapping(value="/testTransaction/{id}")
 	public AjaxReturnBean testTransaction(@PathVariable String id){
-		System.out.println("testTransaction()");
+		log.info("testTransaction()");
 		AjaxReturnBean arb = new  AjaxReturnBean();
 		arb.setStatus("SUCCESS");
 		arb.setMessage("操作成功");
