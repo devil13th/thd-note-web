@@ -16,11 +16,8 @@ public class EntityDaoImpl implements EntityDao {
 	
 	@Resource
 	private DataSource dataSource;
-	@Autowired
-	private SessionFactory sessionFactory;
 	@Override
 	public void add(Object obj) {
-		System.out.println(sessionFactory);
 		entityManager.persist(obj);
 	}
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.thd.note.dao.EntityDao;
+import com.thd.note.dao.JdbcDao;
 import com.thd.note.pojo.Note;
 import com.thd.note.service.NoteService;
 @Service
@@ -18,8 +19,10 @@ public class NoteServiceImpl implements NoteService {
 	@Resource
 	private EntityDao entityDao;
 	
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	@Resource
+	private JdbcDao jdbcDao;
+	
+	
 	
 	@Override
 	 @Transactional(readOnly = true)
@@ -29,7 +32,8 @@ public class NoteServiceImpl implements NoteService {
 	@Override
 	@Transactional(readOnly = true)
 	public List queryNote(){
-		return this.jdbcTemplate.queryForList("select id as id ,title as tit ,content as con ,create_date as crd from note");
+		return this.jdbcDao.query("select id as id ,title as tit ,content as con ,create_date as crd from note", null,null);
+		//return this.jdbcTemplate.queryForList("select id as id ,title as tit ,content as con ,create_date as crd from note");
 	}
 	
 	
