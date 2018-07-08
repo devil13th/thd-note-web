@@ -4,15 +4,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.thd.note.dao.EntityDao;
-import com.thd.note.dao.JdbcDao;
 import com.thd.note.pojo.Note;
 import com.thd.note.service.NoteService;
+import com.thd.util.dao.JdbcDao;
+import com.thd.util.repository.EntityDao;
 @Service
 @Transactional
 public class NoteServiceImpl implements NoteService {
@@ -40,7 +38,7 @@ public class NoteServiceImpl implements NoteService {
 	@Override
 	public void saveNote(Note note){
 		this.entityDao.add(note);
-		
+		System.out.println(this.entityDao);
 		for(int i = 0 , j = 10 ; i < j ; i++){
 			Note n = new Note();
 			n.setTitle("tit_" + i);
