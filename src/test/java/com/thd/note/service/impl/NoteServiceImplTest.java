@@ -1,5 +1,5 @@
 package com.thd.note.service.impl;
-
+/*
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,4 +40,4 @@ public class NoteServiceImplTest {
 		System.out.println(n.getId());
 		System.out.println("success");
 	}
-}
+}*/
