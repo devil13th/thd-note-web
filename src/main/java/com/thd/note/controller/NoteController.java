@@ -3,6 +3,7 @@ package com.thd.note.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,8 @@ public class NoteController {
 	 * @return
 	 */
 	@RequestMapping(value="/queryNote")
-	public List queryNote(){
+	public List queryNote(HttpServletRequest req){
+		log.info(req.getParameter("a"));
 		log.info("queryNote()");
 		return this.noteService.queryNote();
 	}
