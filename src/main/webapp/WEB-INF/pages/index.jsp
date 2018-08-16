@@ -11,8 +11,16 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/webjars/jquery/3.3.1-1/jquery.min.js"></script>
 
 <script>
+
+let ip = "127.0.0.1";
+let ctx = "<%=request.getContextPath()%>";
+let port = "<%=request.getServerPort()%>";
+
+let urlFix = "http://" + ip + ":" + port + ctx;
+//alert(urlFix)
+
 function test01(){
-	var url = "http://127.0.0.1:8080/thd-note-web/rest/t01?username=devil13th&password=123456"
+	var url = urlFix +"/rest/t01?username=devil13th&password=123456"
 	//var url = "http://127.0.0.1:8080/thd-note-web/rest/t02?username=devil13th&password=123456"
 	fetch(url,{
 		method:"GET",
@@ -31,8 +39,28 @@ function test01(){
 }
 
 
+function test02(){
+	var url = urlFix +"/rest/t02?username=devil13th&password=123456"
+	fetch(url,{
+		method:"GET",
+		headers: new Headers({
+		  'Accept': 'application/json', // 通过头指定，获取的数据类型是JSON
+	      'Content-Type': 'application/x-www-form-urlencoded', // 指定提交方式为表单提交
+	      'customData':"devil13th"
+	    }),
+	}).then(function(res){
+		console.log(res);
+		return res.text()
+	}).then(function(res){
+		console.log(res);
+		//alert(res)
+	})
+}
+
+
+
 function test03a(){
-	var url = "http://127.0.0.1:8080/thd-note-web/rest/t03?username=devil13th&password=123456"
+	var url = urlFix +"/rest/t03?username=devil13th&password=123456"
 	//var url = "http://127.0.0.1:8080/thd-note-web/rest/t02?username=devil13th&password=123456"
 	fetch(url,{
 		method:"GET",
@@ -52,7 +80,7 @@ function test03a(){
 
 
 function test03b(){
-	var url = "http://127.0.0.1:8080/thd-note-web/rest/t03"
+	var url = urlFix + "/rest/t03"
 	//var url = "http://127.0.0.1:8080/thd-note-web/rest/t02?username=devil13th&password=123456"
 	fetch(url,{
 		method:"POST",
@@ -72,7 +100,7 @@ function test03b(){
 }
 
 function test04(){
-	var url = "http://127.0.0.1:8080/thd-note-web/rest/t04/devil13th/123456"
+	var url = urlFix +"/rest/t04/devil13th/123456"
 	//var url = "http://127.0.0.1:8080/thd-note-web/rest/t02?username=devil13th&password=123456"
 	fetch(url,{
 		method:"GET",
@@ -96,7 +124,7 @@ function test05(){
 		password:"123456"
 	}
 	
-	var url = "http://127.0.0.1:8080/thd-note-web/rest/t05"
+	var url = urlFix +"/rest/t05"
 	fetch(url,{
 		method:"POST",
 		headers: new Headers({
@@ -148,6 +176,7 @@ function postData(){
 <body>
 <div id="a">[${name}]</div>
 <button onclick="test01()">test01</button>
+<button onclick="test02()">test02</button>
 <button onclick="test03a()">test03a</button>
 <button onclick="test03b()">test03b</button>
 <button onclick="test04()">test04</button>
@@ -159,10 +188,10 @@ function postData(){
 
 <button onclick="postData()">postData</button>
 
-<form method="post" action="http://127.0.0.1:8080/thd-note-web/note/queryNote">
-<input type="text" name="a"/><br/>
-<input type="text" name="b"/><br/>
-<input type="submit" value="smt"/>
+<form method="post" action="<%=request.getContextPath()%>/rest/t03">
+<input type="text" name="username"/><br/>
+<input type="text" name="password"/><br/>
+<input type="submit" value="test03b"/>
 </form>
 </body>
 </html>

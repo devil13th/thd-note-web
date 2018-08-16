@@ -16,6 +16,7 @@ import com.thd.note.pojo.UserModel;
 public class RestfulController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	
+	
 	@RequestMapping(value="/t01",method=RequestMethod.GET)
 	public UserModel t01(String username,String password) {
 		System.out.println("t01");
@@ -27,6 +28,7 @@ public class RestfulController {
 		u.setPassword(password);
 		return u;
 	}
+	
 	
 	@RequestMapping(value="/t02",method=RequestMethod.GET)
 	public UserModel t02(HttpServletRequest request) {
@@ -40,6 +42,7 @@ public class RestfulController {
 		return u;
 	}
 	
+	
 	@RequestMapping(value="/t03")
 	public UserModel t03(UserModel user) {
 		System.out.println("t03");
@@ -51,6 +54,7 @@ public class RestfulController {
 		u.setPassword(user.getPassword());
 		return u;
 	}
+	
 	
 	@RequestMapping(value="/t04/{username}/{password}",method=RequestMethod.GET)
 	public UserModel t04(@PathVariable String username,@PathVariable String password) {
